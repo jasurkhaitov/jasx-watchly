@@ -1,0 +1,55 @@
+kind	"youtube#searchListResponse"
+nextPageToken	"CDIQAA"
+regionCode	"DE"
+pageInfo	Object { totalResults: 1000000, resultsPerPage: 50 }
+items	[ {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, … ]
+0	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+1	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+2	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+3	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+4	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+5	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+6	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+7	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+8	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+9	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+10	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+11	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+12	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+13	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+14	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+15	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+16	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+17	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+18	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+19	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+20	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+21	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+22	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+23	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+24	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+25	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+26	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+27	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+28	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+29	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+30	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+31	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+32	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+33	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+34	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+35	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+36	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+37	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+38	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+39	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+40	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+41	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+42	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+43	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+44	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+45	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+46	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+47	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+48	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
+49	Object { kind: "youtube#searchResult", id: {…}, snippet: {…} }
