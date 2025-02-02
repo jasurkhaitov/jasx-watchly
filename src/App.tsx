@@ -6,7 +6,8 @@ import ChannelPage from './page/ChannelPage';
 import VideoPage from './page/VideoPage';
 import SearchPage from './page/SearchPage';
 import { ApiService } from './service/ApiService';
-import { MyGlobalContext, Video } from './hooks/useContext';
+import { MyGlobalContext } from './hooks/useContext';
+import { Video } from './typescript/type'
 
 type Status = number | null;
 
@@ -20,7 +21,7 @@ export default function App() {
       .then((db) => {
         setVideo(db.data);
         setStatus(db.status);
-        console.log(db.data);
+        console.log(db.status);
       });
   }, [selectedCategory]);
 

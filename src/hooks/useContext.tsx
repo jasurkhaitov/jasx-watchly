@@ -1,17 +1,5 @@
+import { Video } from '@/typescript/type'
 import { createContext, Dispatch, SetStateAction } from 'react';
-
-export interface Video {
-  id: string;
-  snippet: {
-    title: string;
-    description: string;
-    thumbnails: {
-      default: { url: string };
-      medium: { url: string };
-      high: { url: string };
-    };
-  };
-}
 
 type Status = number | null;
 
