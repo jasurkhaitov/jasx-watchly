@@ -21,7 +21,7 @@ export default function App() {
       .then((db) => {
         setVideo(db.data);
         setStatus(db.status);
-        console.log(db.status);
+        console.log(db.data);
       });
   }, [selectedCategory]);
 
