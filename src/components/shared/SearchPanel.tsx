@@ -2,11 +2,14 @@ import * as React from "react"
 import { Search } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
+import { useNavigate } from 'react-router-dom'
 
 export default function SearchPanel() {
   const [isActive, setIsActive] = React.useState(false)
   const [searchQuery, setSearchQuery] = React.useState("")
   const inputRef = React.useRef<HTMLInputElement>(null)
+
+  const navigate = useNavigate()
 
   const handleFocus = () => {
     setIsActive(true)
@@ -24,7 +27,7 @@ export default function SearchPanel() {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
-    console.log("Search query:", searchQuery)
+    if (searchQuery) navigate(`/search/${searchQuery}`)
   }
 
   return (

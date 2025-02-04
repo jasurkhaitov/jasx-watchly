@@ -31,7 +31,7 @@ export default function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/channel/:id" element={<ChannelPage />} />
         <Route path="/video/:id" element={<VideoPage />} />
-        <Route path="/search/:id" element={<SearchPage />} />
+        <Route path="/search/:searchQuery" element={<SearchPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </MyGlobalContext.Provider>

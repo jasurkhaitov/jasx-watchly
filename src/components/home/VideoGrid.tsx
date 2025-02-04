@@ -12,8 +12,8 @@ export default function VideoGrid() {
 
 	return (
 		<div className='mt-24 mb-10 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8'>
-			<h2 className='text-4xl font-bold mb-8 text-primary'>
-				{selectedCategory} Videos
+			<h2 className='text-4xl font-bold mb-6 ml-3 pt-[75px]'>
+				{selectedCategory} <span className='text-blue-700 dark:text-blue-500'>Videos</span>
 			</h2>
 
 			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6'>
