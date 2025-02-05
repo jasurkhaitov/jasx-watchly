@@ -48,3 +48,5 @@ export interface ChannelCardDetail {
 	desc: string
 	published: string
 }
+
+export type Status = number | null;

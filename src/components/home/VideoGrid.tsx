@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card'
 import { VideoSkeleton } from './VideoSkeleton'
 import VideoCard from './VideoCard'
 import ChannelCard from './ChannelCard'
+import PlaylistCard from './PlaylistCard'
 
 export default function VideoGrid() {
 	const { video, selectedCategory, status } = useContext(MyGlobalContext)
@@ -13,7 +14,8 @@ export default function VideoGrid() {
 	return (
 		<div className='mt-24 mb-10 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8'>
 			<h2 className='text-4xl font-bold mb-6 ml-3 pt-[75px]'>
-				{selectedCategory} <span className='text-blue-700 dark:text-blue-500'>Videos</span>
+				{selectedCategory}{' '}
+				<span className='text-blue-700 dark:text-blue-500'>Videos</span>
 			</h2>
 
 			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6'>
@@ -22,7 +24,6 @@ export default function VideoGrid() {
 							<VideoSkeleton key={index} />
 					  ))
 					: video.map((item, idx) => {
-							const isVideo = item.id.kind === 'youtube#video'
 							const { snippet } = item
 
 							return (
@@ -30,7 +31,7 @@ export default function VideoGrid() {
 									key={idx}
 									className='group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col'
 								>
-									{isVideo ? (
+									{item.id.kind === 'youtube#video' && (
 										<VideoCard
 											imageUrl={snippet.thumbnails.high.url}
 											title={snippet.title}
@@ -38,12 +39,24 @@ export default function VideoGrid() {
 											desc={snippet.description}
 											published={snippet.publishedAt}
 										/>
-									) : (
+									)}
+
+									{item.id.kind === 'youtube#channel' && (
 										<ChannelCard
 											imageUrl={snippet.thumbnails.high.url}
 											channelTitle={snippet.channelTitle}
 											desc={snippet.description}
 											published={snippet.publishedAt}
+										/>
+									)}
+
+									{item.id.kind === 'youtube#playlist' && (
+										<PlaylistCard
+											imageUrl={snippet.thumbnails.high.url}
+											channelTitle={snippet.channelTitle}
+											desc={snippet.description}
+											published={snippet.publishedAt}
+											title={snippet.title}
 										/>
 									)}
 								</Card>
