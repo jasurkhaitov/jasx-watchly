@@ -1,52 +1,45 @@
-# React + TypeScript + Vite
+# Watchly
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Watchly is a YouTube clone built with React, TypeScript, ShadCN UI, and Tailwind CSS. This project allows users to search for channels and watch videos, but video uploads are not supported.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 Search for YouTube channels
+- 📺 Watch videos directly from YouTube
+- 🎨 Modern UI with ShadCN and Tailwind CSS
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React + TypeScript**: For a scalable and maintainable frontend
+- **ShadCN UI + Tailwind CSS**: For a sleek and responsive design
+- **YouTube v3 API (RapidAPI)**: Fetching video data from YouTube ([API Link](https://rapidapi.com/ytdlfree/api/youtube-v31/playground/apiendpoint_0fc318cf-5d2b-4797-80e0-f32558f11826))
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/jasurkhaitov/watchly.git
+   cd watchly
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Set up environment variables:
+   - Create a `.env` file in the root directory
+   - Add your RapidAPI key and any other necessary configurations
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Usage
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Open your browser and go to `http://localhost:3000`
+- Search for a YouTube channel
+- Select a video to watch
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# jasx-watchly
-# jasx-watchly
+## Contact
+
+📬 Admin: [Telegram](https://t.me/jasurkhaitov)
+
