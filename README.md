@@ -35,7 +35,7 @@ Watchly is a YouTube clone built with React, TypeScript, ShadCN UI, and Tailwind
 
 ## Usage
 
-- Open your browser and go to `http://localhost:3000`
+- Open your browser and go to `http://localhost:5173`
 - Search for a YouTube channel
 - Select a video to watch
 
