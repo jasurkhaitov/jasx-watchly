@@ -1,5 +1,9 @@
+import Navbar from '@/components/shared/Navbar'
+
 export default function ChannelPage() {
 	return (
-		<div>ChannelPage</div>
+		<>
+			<Navbar />
+		</>
 	)
 }

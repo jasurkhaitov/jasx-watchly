@@ -3,7 +3,7 @@ import { CardContent } from '../ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Badge } from '../ui/badge'
 import { formatDistanceToNow } from 'date-fns'
-import { VideoCardDetail } from '@/typescript/type'
+import { PlaylistDetail } from '@/typescript/type'
 import { Button } from '../ui/button'
 
 export default function PlaylistCard({
@@ -11,7 +11,7 @@ export default function PlaylistCard({
 	title,
 	channelTitle,
 	published,
-}: VideoCardDetail) {
+}: PlaylistDetail) {
 	return (
 		<div className='group flex flex-col'>
 			<div className='relative aspect-video cursor-pointer'>

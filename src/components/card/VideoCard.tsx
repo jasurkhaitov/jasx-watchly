@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Badge } from '../ui/badge'
 import { formatDistanceToNow } from 'date-fns'
 import { VideoCardDetail } from '@/typescript/type'
+import { Link } from 'react-router-dom'
 
 export default function VideoCard({
 	imageUrl,
@@ -11,9 +12,10 @@ export default function VideoCard({
 	channelTitle,
 	desc,
 	published,
+	id,
 }: VideoCardDetail) {
 	return (
-		<>
+		<Link to={`/video/${id}`}>
 			<div className='relative aspect-video cursor-pointer'>
 				<img
 					src={imageUrl}
@@ -57,6 +59,6 @@ export default function VideoCard({
 					</Badge>
 				</div>
 			</CardContent>
-		</>
+		</Link>
 	)
 }

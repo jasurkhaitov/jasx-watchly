@@ -1,7 +1,7 @@
 import { ModeToggle } from '../theme/mode-toggle'
 import { LuContact } from 'react-icons/lu'
 import Logo from './Logo'
-import SearchPanel from './SearchPanel'
+import SearchPanel from '../search/SearchPanel'
 
 export default function Navbar() {
 	return (

@@ -1,10 +1,10 @@
 import { useContext } from 'react'
 import { MyGlobalContext } from '@/hooks/useContext'
 import { Card } from '@/components/ui/card'
-import { VideoSkeleton } from './VideoSkeleton'
-import VideoCard from './VideoCard'
-import ChannelCard from './ChannelCard'
-import PlaylistCard from './PlaylistCard'
+import { VideoSkeleton } from '../card/VideoSkeleton'
+import VideoCard from '../card/VideoCard'
+import ChannelCard from '../card/ChannelCard'
+import PlaylistCard from '../card/PlaylistCard'
 
 export default function VideoGrid() {
 	const { video, selectedCategory, status } = useContext(MyGlobalContext)
@@ -24,7 +24,7 @@ export default function VideoGrid() {
 							<VideoSkeleton key={index} />
 					  ))
 					: video.map((item, idx) => {
-							const { snippet } = item
+							const { id, snippet } = item
 
 							return (
 								<Card
@@ -38,6 +38,7 @@ export default function VideoGrid() {
 											channelTitle={snippet.channelTitle}
 											desc={snippet.description}
 											published={snippet.publishedAt}
+											id={id.videoId}
 										/>
 									)}
 
@@ -47,6 +48,7 @@ export default function VideoGrid() {
 											channelTitle={snippet.channelTitle}
 											desc={snippet.description}
 											published={snippet.publishedAt}
+											id={id.videoId}
 										/>
 									)}
 

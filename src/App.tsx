@@ -6,15 +6,17 @@ import ChannelPage from './page/ChannelPage';
 import VideoPage from './page/VideoPage';
 import SearchPage from './page/SearchPage';
 import { MyGlobalContext } from './hooks/useContext';
-import { Status, Video } from './typescript/type'
+import { Status, Video, VideoDetailTypes } from './typescript/type'
 
 export default function App() {
   const [video, setVideo] = useState<Video[]>([]);
   const [status, setStatus] = useState<Status>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
+  const [videoDetails, setVideoDetails] = useState<VideoDetailTypes[]>([]);
+
   return (
-    <MyGlobalContext.Provider value={{ video, setVideo, selectedCategory, setSelectedCategory, status, setStatus}}>
+    <MyGlobalContext.Provider value={{ video, setVideo, selectedCategory, setSelectedCategory, status, setStatus, videoDetails, setVideoDetails}}>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/channel/:id" element={<ChannelPage />} />

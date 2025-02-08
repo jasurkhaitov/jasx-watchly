@@ -28,7 +28,9 @@ export default function SearchPanel() {
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault()
 		if (searchQuery.trim()) {
-			navigate(`/search/${searchQuery}`)
+			navigate(
+				`/search/${searchQuery.trim().toLowerCase().replace(/\s+/g, '-')}`
+			)
 		}
 	}
 

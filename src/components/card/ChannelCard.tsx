@@ -4,12 +4,14 @@ import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { formatDistanceToNow } from 'date-fns'
 import { ChannelCardDetail } from '@/typescript/type'
+import { Link } from 'react-router-dom'
 
 export default function ChannelCard({
 	imageUrl,
 	channelTitle,
 	desc,
 	published,
+	id,
 }: ChannelCardDetail) {
 	return (
 		<div className='flex flex-col items-center p-5 text-center'>
@@ -19,7 +21,10 @@ export default function ChannelCard({
 			</Avatar>
 			<h3 className='font-semibold text-lg mb-2'>{channelTitle}</h3>
 			<p className='text-sm text-muted-foreground mb-3'>{desc}</p>
-			<Button variant={'secondary'}>View Channel</Button>
+
+			<Link to={`/channel/${id}`}>
+				<Button variant={'secondary'}>View Channel</Button>
+			</Link>
 
 			<div className='flex items-start space-x-2 text-xs mt-5'>
 				<Badge variant='secondary' className='px-2 py-1'>

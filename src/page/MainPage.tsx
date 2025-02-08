@@ -16,6 +16,7 @@ export default function MainPage() {
       .then((db) => {
         setVideo(db.data);
         setStatus(db.status);
+				console.log(db.data)
       });
   }, [selectedCategory, setStatus, setVideo]);
 

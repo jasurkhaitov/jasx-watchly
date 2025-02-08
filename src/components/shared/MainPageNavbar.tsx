@@ -2,7 +2,7 @@ import { ModeToggle } from '../theme/mode-toggle'
 import { LuContact } from 'react-icons/lu'
 import Logo from './Logo'
 import ScrollNav from './ScrollNav'
-import SearchPanel from './SearchPanel'
+import SearchPanel from '../search/SearchPanel'
 
 export default function MainPageNavbar() {
 	return (

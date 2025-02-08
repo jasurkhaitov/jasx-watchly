@@ -7,28 +7,34 @@ import { useParams } from 'react-router-dom'
 
 export default function SearchPage() {
 	const { searchQuery } = useParams()
+
+	const searchResult = searchQuery?.toLowerCase().replace(/-/g, ' ') || ''
+
 	const { setVideo, setStatus } = useContext(MyGlobalContext)
 
 	useEffect(() => {
 		const getData = async () => {
+			if (!searchResult) return
+
 			try {
-				const db = await ApiService.fetching(`search?part=snippet&q=${searchQuery}`)
+				const db = await ApiService.fetching(
+					`search?part=snippet&q=${searchResult}`
+				)
 				setVideo(db.data)
 				setStatus(db.status)
-				console.log(db.data);
-				
+				console.log(db.data)
 			} catch (err) {
 				console.error(err)
 			}
 		}
 
 		getData()
-	}, [searchQuery, setVideo, setStatus])
+	}, [searchResult, setVideo, setStatus])
 
 	return (
 		<>
 			<Navbar />
-			<SearchResult searchQuery={searchQuery} />
+			<SearchResult searchQuery={searchResult} />
 		</>
 	)
 }
