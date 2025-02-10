@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import VideoDetailSkeleton from './VideoDetailSkeleton'
 import { Card, CardContent } from '../ui/card'
 import { Badge } from '../ui/badge'
-import { Eye, MessageCircle, ThumbsUp } from 'lucide-react'
+import { Eye, MessageSquareText, ThumbsUp } from 'lucide-react'
 
 export default function VideoDetails() {
 	const { videoDetails, status } = useContext(MyGlobalContext)
@@ -32,10 +32,25 @@ export default function VideoDetails() {
 						{word + ' '}
 					</a>
 				)
+			}else if (word.startsWith('@')) {
+				return (
+					<a
+						key={idx}
+						href={word}
+						target='_blank'
+						rel='noopener noreferrer'
+						className='text-red-700 hover:text-red-900'
+					>
+						{word + ' '}
+					</a>
+				)
 			}
 			return word + ' '
 		})
 	}
+
+	console.log(videoDetails);
+	
 
 	return (
 		<div className='mt-24 mb-10 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8'>
@@ -93,7 +108,7 @@ export default function VideoDetails() {
 												variant='blue'
 												className='flex items-center gap-1 px-3 py-1'
 											>
-												<MessageCircle className='w-4 h-4' />
+												<MessageSquareText className='w-4 h-4' />
 												<span>
 													{parseInt(
 														item.statistics.commentCount
@@ -105,6 +120,12 @@ export default function VideoDetails() {
 									<p className='mt-2 text-[13px] text-gray-700 leading-relaxed'>
 										{formatDescription(item.snippet.description)}
 									</p>
+
+									<div className='mt-5 flex items-center justify-start gap-2 flex-wrap'>
+										{
+											item.snippet.tags?.map(item => <Badge variant={'outline'} className='text-yellow-400 hover:text-yellow-600'># {' '} {item}</Badge>)
+										}
+									</div>
 								</CardContent>
 							</Card>
 						</div>
