@@ -3,7 +3,8 @@ import { useContext } from 'react'
 import VideoDetailSkeleton from './VideoDetailSkeleton'
 import { Card, CardContent } from '../ui/card'
 import { Badge } from '../ui/badge'
-import { Eye, MessageSquareText, ThumbsUp } from 'lucide-react'
+import { BadgeCheck, Eye, MessageSquareText, ThumbsUp } from 'lucide-react'
+import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 
 export default function VideoDetails() {
 	const { videoDetails, status } = useContext(MyGlobalContext)
@@ -32,7 +33,7 @@ export default function VideoDetails() {
 						{word + ' '}
 					</a>
 				)
-			}else if (word.startsWith('@')) {
+			} else if (word.startsWith('@')) {
 				return (
 					<a
 						key={idx}
@@ -49,12 +50,9 @@ export default function VideoDetails() {
 		})
 	}
 
-	console.log(videoDetails);
-	
-
 	return (
-		<div className='mt-24 mb-10 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8'>
-			<div className='mx-auto p-4 mt-24'>
+		<div className='mb-10 max-w-[1920px] mx-auto'>
+			<div className='mx-auto'>
 				{isLoading ? (
 					<VideoDetailSkeleton />
 				) : (
@@ -71,19 +69,26 @@ export default function VideoDetails() {
 							/>
 							<Card className='mt-4'>
 								<CardContent className='p-4'>
-									<h1 className='text-2xl font-bold border-b pb-2'>{item.snippet.title}</h1>
+									<h1 className='text-2xl font-bold border-b pb-2'>
+										{item.snippet.title}
+									</h1>
+
 									<div className='flex items-center justify-between my-4'>
-										<p className='text-gray-600 dark:text-gray-400 text-sm'>
-											Published on{' '}
-											{new Date(item.snippet.publishedAt).toLocaleDateString(
-												'en-US',
-												{
-													year: 'numeric',
-													month: 'long',
-													day: 'numeric',
-												}
-											)}
-										</p>
+										<div className='flex items-center space-x-2 mb-2'>
+											<Avatar className='w-7 h-7'>
+												<AvatarImage
+													src={`https://ui-avatars.com/api/?name=${item.snippet.channelTitle}`}
+													className='rounded-full'
+												/>
+												<AvatarFallback>
+													{item.snippet.channelTitle[0]}
+												</AvatarFallback>
+											</Avatar>
+											<span className='text-xs font-medium text-muted-foreground'>
+												{item.snippet.channelTitle}
+											</span>
+											<BadgeCheck className='text-xs text-green-500 w-4 h-4' />
+										</div>
 
 										<div className='flex flex-wrap items-center gap-1 rounded-sm'>
 											<Badge
@@ -117,14 +122,30 @@ export default function VideoDetails() {
 											</Badge>
 										</div>
 									</div>
+									<p className='text-gray-600 dark:text-gray-400 text-sm'>
+										Published on{' '}
+										{new Date(item.snippet.publishedAt).toLocaleDateString(
+											'en-US',
+											{
+												year: 'numeric',
+												month: 'long',
+												day: 'numeric',
+											}
+										)}
+									</p>
 									<p className='mt-2 text-[13px] text-gray-700 leading-relaxed'>
 										{formatDescription(item.snippet.description)}
 									</p>
 
 									<div className='mt-5 flex items-center justify-start gap-2 flex-wrap'>
-										{
-											item.snippet.tags?.map(item => <Badge variant={'outline'} className='text-yellow-400 hover:text-yellow-600'># {' '} {item}</Badge>)
-										}
+										{item.snippet.tags?.map(item => (
+											<Badge
+												variant={'outline'}
+												className='text-yellow-400 hover:text-yellow-600'
+											>
+												# {item}
+											</Badge>
+										))}
 									</div>
 								</CardContent>
 							</Card>

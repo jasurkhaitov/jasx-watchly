@@ -3,11 +3,13 @@ import SuggestedVideo from '@/components/video/SuggestedVideo'
 import VideoDetails from '@/components/video/VideoDetails'
 import { MyGlobalContext } from '@/hooks/useContext'
 import { ApiService } from '@/service/ApiService'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 export default function VideoPage() {
 	const { id } = useParams()
+	const [suggestedVideo, setSuggestedVideo] = useState([])
+	const [suggestedVideoStatus, setSuggestedVideoStatus] = useState(0)
 
 	const { setVideoDetails, setStatus } = useContext(MyGlobalContext)
 
@@ -19,6 +21,14 @@ export default function VideoPage() {
 				)
 				setVideoDetails(db.data)
 				setStatus(db.status)
+
+				const suggestedVideo = await ApiService.fetching(
+					`search?part=snippet&relatedToVideoId=${id}&type=video`
+				)
+
+				console.log(suggestedVideo.data)
+				setSuggestedVideo(suggestedVideo.data)
+				setSuggestedVideoStatus(suggestedVideo.status)
 			} catch (err) {
 				console.error(err)
 			}
@@ -30,13 +40,16 @@ export default function VideoPage() {
 	return (
 		<>
 			<Navbar />
-			<div className='flex flex-col lg:flex-row gap-6 p-4 lg:p-8'>
+			<div className='mt-24 flex flex-col lg:flex-row px-5 gap-5'>
 				<div className='w-full lg:w-[75%]'>
 					<VideoDetails />
 				</div>
 
 				<div className='w-full lg:w-[25%]'>
-					<SuggestedVideo />
+					<SuggestedVideo
+						suggested={suggestedVideo}
+						status={suggestedVideoStatus}
+					/>
 				</div>
 			</div>
 		</>
