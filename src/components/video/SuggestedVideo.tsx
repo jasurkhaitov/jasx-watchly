@@ -22,7 +22,7 @@ export default function SuggestedVideo({
 					  ))
 					: suggested.map((item, idx) => {
 							const { id, snippet } = item
-
+							
 							return (
 								<Card
 									key={idx}
@@ -30,13 +30,14 @@ export default function SuggestedVideo({
 								>
 									{item.id.kind === 'youtube#video' && (
 										<VideoCard
-											imageUrl={snippet.thumbnails.high.url}
-											title={snippet.title}
-											channelTitle={snippet.channelTitle}
-											desc={snippet.description}
-											published={snippet.publishedAt}
-											id={id.videoId}
-										/>
+										imageUrl={snippet?.thumbnails?.high?.url || snippet?.thumbnails?.medium?.url || snippet?.thumbnails?.default?.url}
+										title={snippet?.title || 'No title available'}
+										channelTitle={snippet?.channelTitle || 'Unknown Channel'}
+										desc={snippet?.description || 'No description available'}
+										published={snippet?.publishedAt || new Date().toISOString()}
+										id={id?.videoId}
+									/>
+									
 									)}
 								</Card>
 							)

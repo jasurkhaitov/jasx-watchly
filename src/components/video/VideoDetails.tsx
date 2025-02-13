@@ -141,6 +141,7 @@ export default function VideoDetails() {
 										{item.snippet.tags?.map(item => (
 											<Badge
 												variant={'outline'}
+												key={item}
 												className='text-yellow-400 hover:text-yellow-600'
 											>
 												# {item}

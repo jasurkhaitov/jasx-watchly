@@ -26,8 +26,9 @@ export default function VideoPage() {
 					`search?part=snippet&relatedToVideoId=${id}&type=video`
 				)
 
-				console.log(suggestedVideo.data)
 				setSuggestedVideo(suggestedVideo.data)
+				console.log(suggestedVideo.data);
+				
 				setSuggestedVideoStatus(suggestedVideo.status)
 			} catch (err) {
 				console.error(err)
