@@ -13,6 +13,10 @@ export default function SearchPage() {
 	const { setVideo, setStatus } = useContext(MyGlobalContext)
 
 	useEffect(() => {
+		document.title = `${searchResult.replace(/\b\w/g, char => char.toUpperCase())} - Search Result`
+	}, [])
+
+	useEffect(() => {
 		const getData = async () => {
 			if (!searchResult) return
 
