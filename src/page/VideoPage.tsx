@@ -11,7 +11,13 @@ export default function VideoPage() {
 	const [suggestedVideo, setSuggestedVideo] = useState([])
 	const [suggestedVideoStatus, setSuggestedVideoStatus] = useState(0)
 
+	const [videoTitle, setVideoTitle] = useState('Video')
+
 	const { setVideoDetails, setStatus } = useContext(MyGlobalContext)
+
+	useEffect(() => {
+		document.title = `${videoTitle}`
+	}, [videoTitle])
 
 	useEffect(() => {
 		const getData = async () => {
@@ -22,16 +28,16 @@ export default function VideoPage() {
 				setVideoDetails(db.data)
 				setStatus(db.status)
 
+				setVideoTitle(db.data[0].snippet.title)
 				const suggestedVideo = await ApiService.fetching(
 					`search?part=snippet&relatedToVideoId=${id}&type=video`
 				)
 
 				setSuggestedVideo(suggestedVideo.data)
-				console.log(suggestedVideo.data);
-				
+
 				setSuggestedVideoStatus(suggestedVideo.status)
 			} catch (err) {
-				console.error(err)
+				throw new Error(`${err}`)
 			}
 		}
 

@@ -14,7 +14,7 @@ export default function SearchPage() {
 
 	useEffect(() => {
 		document.title = `${searchResult.replace(/\b\w/g, char => char.toUpperCase())} - Search Result`
-	}, [])
+	}, [searchResult])
 
 	useEffect(() => {
 		const getData = async () => {
