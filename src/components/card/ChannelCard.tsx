@@ -7,12 +7,13 @@ import { ChannelCardDetail } from '@/typescript/type'
 import { Link } from 'react-router-dom'
 
 export default function ChannelCard({
+	channelId,
 	imageUrl,
 	channelTitle,
 	desc,
 	published,
-	id,
 }: ChannelCardDetail) {
+	
 	return (
 		<div className='flex flex-col items-center p-5 text-center'>
 			<Avatar className='w-[150px] h-[150px] mb-4'>
@@ -22,7 +23,7 @@ export default function ChannelCard({
 			<h3 className='font-semibold text-lg mb-2'>{channelTitle}</h3>
 			<p className='text-sm text-muted-foreground mb-3'>{desc}</p>
 
-			<Link to={`/channel/${id}`}>
+			<Link to={`/channel/${channelId}`}>
 				<Button variant={'secondary'}>View Channel</Button>
 			</Link>
 

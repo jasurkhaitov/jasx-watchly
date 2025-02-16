@@ -26,6 +26,8 @@ export default function VideoGrid() {
 					: video.map((item, idx) => {
 							const { id, snippet } = item
 
+							console.log(video);							
+
 							return (
 								<Card
 									key={idx}
@@ -48,7 +50,7 @@ export default function VideoGrid() {
 											channelTitle={snippet.channelTitle}
 											desc={snippet.description}
 											published={snippet.publishedAt}
-											id={id.videoId}
+											channelId={id.channelId}
 										/>
 									)}
 

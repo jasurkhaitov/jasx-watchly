@@ -26,7 +26,6 @@ export default function SearchPage() {
 				)
 				setVideo(db.data)
 				setStatus(db.status)
-				console.log(db.data)
 			} catch (err) {
 				console.error(err)
 			}

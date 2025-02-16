@@ -8,6 +8,7 @@ export interface Category {
 
 export interface Video {
 	id: {
+		channelId: string
 		kind: string
 		videoId: string
 	}
@@ -56,7 +57,7 @@ export interface ChannelCardDetail {
 	channelTitle: string
 	desc: string
 	published: string
-	id: string
+	channelId: string
 }
 
 export type Status = number | null

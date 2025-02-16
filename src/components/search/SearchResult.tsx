@@ -52,7 +52,7 @@ export default function SearchResult({
 											channelTitle={snippet.channelTitle}
 											desc={snippet.description}
 											published={snippet.publishedAt}
-											id={id.videoId}
+											channelId={id.channelId}
 										/>
 									)}
 
